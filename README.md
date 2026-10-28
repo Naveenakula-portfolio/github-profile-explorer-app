@@ -1,52 +1,94 @@
 # GitHub Profile Explorer
 
-A polished, recruiter-friendly React app that lets you look up any public GitHub profile and explore:
+A polished React + TypeScript dashboard for exploring any public GitHub profile, repository analytics, and recent activity. Built as a recruiter-friendly portfolio project to showcase frontend UI, data visualization, API integration, and product thinking.
 
-- profile overview and social metadata
-- aggregated repo metrics and language distribution
-- searchable repository browser with README previews
-- recent public activity feed
-- contribution heatmap, repo star chart, and dashboard UX
-- dark/light theme and local search history
-- optional GitHub token support for better rate limits
+## What this project does
 
-## Stack
+- Search any public GitHub username
+- View profile details such as avatar, bio, company, location, followers, following, repos, and join date
+- Aggregate repository statistics for stars, forks, watchers, and open issues
+- Browse and filter all public repositories with sort and language filters
+- Open a repository detail drawer with README rendering
+- View public activity feed from GitHub events
+- Explore contribution heatmap and star analytics
+- Switch between light and dark themes
+- Keep recent search history in local storage
+- Handle loading, empty, and error states gracefully
+- Support optional GitHub token usage for higher API rate limits
 
-- React + TypeScript + Vite
+## Tech stack
+
+- React
+- TypeScript
+- Vite
 - Tailwind CSS
-- Recharts for analytics
-- react-markdown for README rendering
-- Radix Dialog for the repo detail drawer
+- Recharts
+- Radix UI Dialog
+- React Markdown + GFM
 
-## Features included
+## Project status
 
-- Search by username or load via `/?user=torvalds`
-- Public profile card: avatar, bio, company, location, blog, followers, following, repos, join date
-- Repository browser with search, language filter, and sorting
-- Aggregated stats for stars, forks, watchers, and open issues
-- Recent activity feed from the public events API
-- Contribution heatmap and repository star chart
-- Recent-search history and quick profiles
-- Loading skeletons, empty states, and clear API/user errors
-- Responsive, polished dark/light design
+This project is structured as a clean, presentation-ready portfolio app for recruiters and hiring managers.
 
-## Run locally
+## Local development
+
+1. Clone the repository
+2. Install dependencies:
 
 ```bash
 npm install
+```
+
+3. Start the app:
+
+```bash
 npm run dev
 ```
 
-Then open the local Vite URL, usually:
+4. Open the local URL in the browser, typically:
 
 ```bash
 http://localhost:5173
 ```
 
+## Production build
+
+```bash
+npm run build
+```
+
 ## Notes
 
-This app uses GitHub’s public REST API directly from the browser. For anonymous usage, GitHub may throttle requests; adding a PAT in the UI raises the available rate limit.
+- The app uses the public GitHub REST API directly from the browser.
+- Anonymous access has rate limits; a personal access token can be entered in the UI to improve availability.
+- This repository keeps environment variables and tokens out of source control.
 
-## Screenshot-ready status
+## Project structure
 
-This repository is structured to present as a strong portfolio project for recruiters and hiring teams.
+```text
+.
+├── src/
+│   ├── App.tsx
+│   ├── index.css
+│   ├── lib/
+│   │   └── github.ts
+│   ├── main.tsx
+│   └── types.ts
+├── index.html
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── vite.config.ts
+├── README.md
+└── .gitignore
+```
+
+## Recommended next steps
+
+- Add deployment with Vercel or Netlify
+- Add screenshot previews for the portfolio page
+- Add a performance badge or project metrics section
+- Add a live demo link for recruiter access
