@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --panel: rgba(255, 255, 255, 0.82);
+  --panel-strong: #ffffff;
+  --panel-muted: #f1f5f9;
+  --border: rgba(148, 163, 184, 0.26);
+  --text: #0f172a;
+  --text-soft: #475569;
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.12);
+  --success: #16a34a;
+  --warning: #d97706;
+  --error: #dc2626;
+  --shadow: 0 20px 50px -20px rgba(15, 23, 42, 0.32);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #020817;
+  --panel: rgba(15, 23, 42, 0.8);
+  --panel-strong: #0f172a;
+  --panel-muted: #111827;
+  --border: rgba(148, 163, 184, 0.18);
+  --text: #e2e8f0;
+  --text-soft: #94a3b8;
+  --accent: #60a5fa;
+  --accent-soft: rgba(96, 165, 250, 0.18);
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --error: #f87171;
+  --shadow: 0 20px 50px -20px rgba(2, 6, 23, 0.8);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.14), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.2);
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 14px;
+  }
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.panel-strong {
+  background: var(--panel-strong);
+  border: 1px solid var(--border);
+}
+
+.muted {
+  color: var(--text-soft);
+}
+
+.subtle-grid {
+  background-image: linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.stat-card {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+}
+
+.repo-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(96, 165, 250, 0.45);
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(53, minmax(12px, 1fr));
+  gap: 4px;
+  min-width: 760px;
+}
+
+.heatmap-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(148, 163, 184, 0.06);
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.heatmap-cell[data-level='0'] {
+  background: rgba(148, 163, 184, 0.14);
+}
+.heatmap-cell[data-level='1'] {
+  background: rgba(59, 130, 246, 0.22);
+}
+.heatmap-cell[data-level='2'] {
+  background: rgba(59, 130, 246, 0.42);
+}
+.heatmap-cell[data-level='3'] {
+  background: rgba(37, 99, 235, 0.68);
+}
+.heatmap-cell[data-level='4'] {
+  background: rgba(29, 78, 216, 0.8);
+}
+
+.readme-content {
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.readme-content h1,
+.readme-content h2,
+.readme-content h3,
+.readme-content h4 {
+  margin-top: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.readme-content p,
+.readme-content li {
+  color: var(--text-soft);
+}
+
+.readme-content code {
+  background: rgba(148, 163, 184, 0.12);
+  border-radius: 6px;
+  padding: 0.15rem 0.35rem;
+}
+
+.readme-content pre {
+  background: rgba(15, 23, 42, 0.9);
+  color: #f8fafc;
+  border-radius: 10px;
+  padding: 14px;
+  overflow-x: auto;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.readme-content a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.readme-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.readme-content th,
+.readme-content td {
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+}
+
+input[type='search']::-webkit-search-cancel-button {
+  display: none;
+}
+
+.scrollbar-soft::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-soft::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.32);
+  border-radius: 999px;
+}
